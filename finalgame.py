@@ -1,9 +1,9 @@
-#Hello to the game "Robot vs Monser"
-#This game is played with 2 players, one controls the Robot with A and D keys and the other controls the Monster with the left and right arrow keys.
-#The goal is to be the first to gain 10 points
-#You can gain points by touching the coins
-#However, if you touch the doors, you lose points
-#I hope you have fun :)
+# Hello to the game "Robot vs Monser"
+# This game is played with 2 players, one controls the Robot with A and D keys and the other controls the Monster with the left and right arrow keys.
+# The goal is to be the first to gain 10 points
+# You can gain points by touching the coins
+# However, if you touch the doors, you lose points
+# I hope you have fun :)
 
 import pygame
 from random import randint
@@ -16,10 +16,17 @@ def initialize_game():
     return width, height, window
 
 def load_images():
-    monster = pygame.image.load("monster.png")
-    robot = pygame.image.load("robot.png")
+    monster_width = 50
+    monster_height = 50
+    monster = pygame.transform.scale(pygame.image.load("monster.png"), (monster_width, monster_height))
+
+    robot_width = 50
+    robot_height = 50
+    robot = pygame.transform.scale(pygame.image.load("robot.png"), (robot_width, robot_height))
+
     coin = pygame.image.load("coin.png")
     door = pygame.image.load("door.png")
+
     return monster, robot, coin, door
 
 def generate_positions(num, width, height):
